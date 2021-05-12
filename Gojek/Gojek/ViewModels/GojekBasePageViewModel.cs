@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ReactiveUI;
 
 namespace Gojek.ViewModels
 {
-    public class GojekBasePageViewModel
+    public class GojekBasePageViewModel : ReactiveObject
     {
+        public GojekBasePageViewModel()
+        {
+        }
     }
 }

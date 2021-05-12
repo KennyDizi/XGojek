@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Gojek.Views.HomePage;
+using Xamarin.Forms;
 
 namespace Gojek
 {
@@ -7,8 +8,8 @@ namespace Gojek
         public GojekApp()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("xxx");
+            MainPage = new NavigationPage(new GojekHomePageView());
         }
 
         protected override void OnStart()

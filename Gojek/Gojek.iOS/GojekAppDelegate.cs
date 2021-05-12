@@ -19,6 +19,8 @@ namespace Gojek.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            Syncfusion.XForms.iOS.TabView.SfTabViewRenderer.Init();
+            Syncfusion.XForms.iOS.Border.SfBorderRenderer.Init();
             LoadApplication(new GojekApp());
 
             return base.FinishedLaunching(app, options);
