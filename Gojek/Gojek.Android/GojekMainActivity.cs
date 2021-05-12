@@ -4,7 +4,7 @@ using Android.OS;
 
 namespace Gojek.Droid
 {
-    [Activity(Label = "Gojek", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true,
+    [Activity(Label = "GoNow", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true,
         ConfigurationChanges = Android.Content.PM.ConfigChanges.ScreenSize |
                                Android.Content.PM.ConfigChanges.Orientation | Android.Content.PM.ConfigChanges.UiMode |
                                Android.Content.PM.ConfigChanges.ScreenLayout |
