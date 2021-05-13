@@ -22,8 +22,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.2.0" />
     <PackageReference Include="ReactiveUI.Events.XamForms" Version="13.3.2" />
     <PackageReference Include="ReactiveUI.XamForms" Version="13.3.2" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.11" />
     <PackageReference Include="Sharpnado.MaterialFrame" Version="1.1.4" />
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="19.1.0.63" />
     <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="19.1.0.63" />
@@ -38,10 +40,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\HomePage\GojekHomePageView.xaml">
+    <EmbeddedResource Update="src\Views\HomePage\GojekHomePageView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\HomePage\GojekV2HomePageView.xaml">
+    <EmbeddedResource Update="src\Views\HomePage\GojekV2HomePageView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

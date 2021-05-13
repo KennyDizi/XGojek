@@ -10,10 +10,10 @@
     xmlns:views="clr-namespace:Gojek.Views;assembly=Gojek"
     x:TypeArguments="homePage:GojekV2HomePageViewModel"
     NavigationPage.HasNavigationBar="False">
-    <materialFrame:MaterialFrame
-        AcrylicGlowColor="DarkSlateGray"
-        AndroidBlurOverlayColor="MediumPurple"
-        MaterialBlurStyle="Light">
+    <ContentPage.BindingContext>
+        <homePage:GojekV2HomePageViewModel />
+    </ContentPage.BindingContext>
+    <materialFrame:MaterialFrame MaterialBlurStyle="Light">
         <StackLayout Margin="20" Spacing="5">
             <textInputLayout:SfTextInputLayout
                 ContainerType="Filled"
@@ -39,6 +39,7 @@
             <buttons:SfButton
                 x:Name="ButtonLogin"
                 Margin="0,30,0,0"
+                Command="{Binding LoginCommand}"
                 CornerRadius="5"
                 HeightRequest="40"
                 IsEnabled="False"

@@ -111,6 +111,9 @@
     <PackageReference Include="ReactiveUI.XamForms">
       <Version>13.3.2</Version>
     </PackageReference>
+    <PackageReference Include="Rg.Plugins.Popup">
+      <Version>2.0.0.11</Version>
+    </PackageReference>
     <PackageReference Include="Sharpnado.MaterialFrame">
       <Version>1.1.4</Version>
     </PackageReference>

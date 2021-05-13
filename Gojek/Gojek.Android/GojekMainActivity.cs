@@ -22,6 +22,7 @@ namespace Gojek.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Android.Glide.Forms.Init(this);
+            Rg.Plugins.Popup.Popup.Init(this);
 
             LoadApplication(new GojekApp());
         }
@@ -32,6 +33,11 @@ namespace Gojek.Droid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+        public override void OnBackPressed()
+        {
+            Rg.Plugins.Popup.Popup.SendBackPressed(base.OnBackPressed);
         }
     }
 }

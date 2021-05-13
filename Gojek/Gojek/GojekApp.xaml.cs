@@ -8,7 +8,7 @@ namespace Gojek
         public GojekApp()
         {
             InitializeComponent();
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("xxx");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NDQ1NDU5QDMxMzkyZTMxMmUzMEZadHNnWTJyTkxlVkVrMGZadVpFczBkL1FBK0hwODNlUnlicVltVUIveDg9");
             Sharpnado.MaterialFrame.Initializer.Initialize(loggerEnable: false, debugLogEnable: false);
             MainPage = new NavigationPage(new GojekV2HomePageView());
         }
