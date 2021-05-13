@@ -1,16 +1,21 @@
-﻿using Gojek.ViewModels;
-using Gojek.Views;
+﻿using System.Diagnostics;
 
 namespace Gojek.Utilities
 {
-    public static class PageExts
+    public static class ObjectExtensions
     {
-        public static GojekBasePageView<TViewModel> CreateNewPage<TViewModel>(GojekBasePageView view, TViewModel viewModel)
-            where TViewModel : GojekBasePageViewModel
+        public static T As<T>(this object instance, string context = null)
         {
-            var navigation = view.Navigation;
-            viewModel.Navigation = navigation;
-            //to do create autofac page view
+            Debug.WriteLine($"Call from: {context}");
+
+            if (instance == null)
+#if DEBUG
+                throw new System.ArgumentNullException(nameof(instance),
+                    $"Unable to sure cast null instance as type '{typeof(T).Name}");
+#else
+                return default(T);
+#endif
+            return (T) instance;
         }
     }
 }

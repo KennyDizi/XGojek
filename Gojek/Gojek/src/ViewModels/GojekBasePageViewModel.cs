@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace Gojek.ViewModels
 {
-    public class GojekBasePageViewModel : ReactiveObject
+    public class GojekBasePageViewModel : ReactiveObject, IConnectivityAware
     {
         public GojekBasePageViewModel()
         {
@@ -41,6 +41,19 @@ namespace Gojek.ViewModels
         public virtual Task OnAppearing()
         {
             return Task.FromResult(0);
+        }
+        
+        public virtual Task OnNavigatedBackTo(NavigationParameters parameters)
+        {
+            return Task.FromResult(0);
+        }
+
+        public virtual void OnConnected()
+        {
+        }
+
+        public virtual void OnDisConnected()
+        {
         }
     }
 }

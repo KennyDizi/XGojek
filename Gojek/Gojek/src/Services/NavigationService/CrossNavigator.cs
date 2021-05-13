@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using Gojek.Utilities;
 using Gojek.ViewModels;
 using Gojek.Views;
 using Rg.Plugins.Popup.Extensions;
@@ -200,7 +200,7 @@ namespace Gojek.src.Services.NavigationService
             await _lazyNavigation.Value.PushAsync(page, animated);
         }
 
-        public async Task PushAsync(Page contentPage, bool animated)
+        public async Task PushAsync(ContentPage contentPage, bool animated)
         {
             //test optimize denied push a page multi time
             var lastPage = _lazyNavigation.Value.NavigationStack.LastOrDefault();
@@ -480,17 +480,11 @@ namespace Gojek.src.Services.NavigationService
             var mainPage = Application.Current.MainPage;
             switch (mainPage)
             {
-                case CrossTransNavigationPage _:
-                    return mainPage.As<CrossTransNavigationPage>().GetContentPageInsideNavigationPage();
+                case NavigationPage _:
+                    return mainPage.As<NavigationPage>().GetContentPageInsideNavigationPage();
 
-                case CrossNavigationPage _:
-                    return mainPage.As<CrossNavigationPage>().GetContentPageInsideNavigationPage();
-
-                case CrossBottomTabbedPage _:
-                    return mainPage.As<CrossBottomTabbedPage>().GetContentPageInsideTabbedPage();
-
-                case CrossMasterDetailPage _:
-                    return mainPage.As<CrossMasterDetailPage>().GetContentPageInsideMasterDetailPage();
+                case TabbedPage _:
+                    return mainPage.As<TabbedPage>().GetContentPageInsideTabbedPage();
 
                 default:
                     throw new InvalidCastException("No page type detected");
@@ -501,79 +495,43 @@ namespace Gojek.src.Services.NavigationService
         {
             switch (mainPage)
             {
-                case CrossNavigationPage _:
-                    return mainPage.As<CrossNavigationPage>().GetContentPageInsideNavigationPage();
-                case CrossTransNavigationPage _:
-                    return mainPage.As<CrossTransNavigationPage>().GetContentPageInsideNavigationPage();
-                case CrossBottomTabbedPage _:
-                    return mainPage.As<CrossBottomTabbedPage>().GetContentPageInsideTabbedPage();
-                case CrossMasterDetailPage _:
-                    return mainPage.As<CrossMasterDetailPage>().GetContentPageInsideMasterDetailPage();
+                case NavigationPage _:
+                    return mainPage.As<NavigationPage>().GetContentPageInsideNavigationPage();
+
+                case TabbedPage _:
+                    return mainPage.As<TabbedPage>().GetContentPageInsideTabbedPage();
+
                 default:
                     return mainPage;
             }
         }
 
-        public static CrossNativeBasePageView GetContentPageInsideMasterDetailPage(
-            this CrossMasterDetailPage masterDetailPage)
-        {
-            CrossNativeBasePageView foundedPage = null;
-            var curPageOfMasterDetail = masterDetailPage.Detail;
-            switch (curPageOfMasterDetail)
-            {
-                case CrossNavigationPage _:
-                    {
-                        var navigationPage = curPageOfMasterDetail.As<CrossNavigationPage>();
-                        foundedPage = navigationPage.GetContentPageInsideNavigationPage();
-                    }
-                    break;
-                case CrossTransNavigationPage _:
-                    {
-                        var navigationPage = curPageOfMasterDetail.As<CrossTransNavigationPage>();
-                        foundedPage = navigationPage.GetContentPageInsideNavigationPage();
-                    }
-                    break;
-                case CrossBottomTabbedPage _:
-                    {
-                        var tabbedPage = curPageOfMasterDetail.As<CrossBottomTabbedPage>();
-                        foundedPage = tabbedPage.GetContentPageInsideTabbedPage();
-                    }
-                    break;
-            }
-
-            return foundedPage;
-        }
-
-        public static CrossNativeBasePageView GetContentPageInsideTabbedPage(
-            this CrossBottomTabbedPage bottomTabbedPage)
+        public static GojekBasePageView GetContentPageInsideTabbedPage(
+            this TabbedPage bottomTabbedPage)
         {
             var curPageOfTabbedPage = bottomTabbedPage.CurrentPage;
 
-            if (curPageOfTabbedPage is CrossNavigationPage)
+            if (curPageOfTabbedPage is NavigationPage)
             {
-                var navPage = curPageOfTabbedPage.As<CrossNavigationPage>();
+                var navPage = curPageOfTabbedPage.As<NavigationPage>();
                 var modalPage = navPage.CurrentPage.Navigation.ModalStack.LastOrDefault();
                 var foundedPage = (modalPage is NavigationPage modalNavigationPage
                                       ? modalNavigationPage.CurrentPage
                                       : modalPage) ??
                                   navPage.CurrentPage;
-                return foundedPage.As<CrossNativeBasePageView>();
+                return foundedPage.As<GojekBasePageView>();
             }
             else
             {
-                var navPage = curPageOfTabbedPage is CrossTransNavigationPage
-                    ? curPageOfTabbedPage.As<CrossTransNavigationPage>()
-                    : curPageOfTabbedPage.As<CrossMasterDetailPage>().Detail.As<CrossTransNavigationPage>();
-                var modalPage = navPage.CurrentPage.Navigation.ModalStack.LastOrDefault();
-                var foundedPage = (modalPage is NavigationPage modalNavigationPage
-                                      ? modalNavigationPage.CurrentPage
-                                      : modalPage) ??
-                                  navPage.CurrentPage;
-                return foundedPage.As<CrossNativeBasePageView>();
+                var modalPage = curPageOfTabbedPage.Navigation.ModalStack.LastOrDefault();
+                var foundedPage = modalPage is NavigationPage modalNavigationPage
+                    ? modalNavigationPage.CurrentPage
+                    : modalPage;
+                return foundedPage.As<GojekBasePageView>();
             }
         }
 
-        public static CrossNativeBasePageView GetContentPageInsideNavigationPage(
+        public static GojekBasePageView GetContentPageInsideNavigationPage(
             this NavigationPage navigationPage)
         {
             var modalPage = navigationPage.CurrentPage.Navigation.ModalStack.LastOrDefault();
@@ -581,70 +539,7 @@ namespace Gojek.src.Services.NavigationService
                                   ? modalNavigationPage.CurrentPage
                                   : modalPage) ??
                               navigationPage.CurrentPage;
-            return foundedPage.As<CrossNativeBasePageView>();
-        }
-
-        #endregion
-
-        #region NaviagationPage
-
-        public static CrossNavigationPage GetCurrentNavigationPage()
-        {
-            var mainPage = Application.Current.MainPage;
-            switch (mainPage)
-            {
-                case CrossNavigationPage _:
-                    return mainPage.As<CrossNavigationPage>().GetItSelfNavigationPage();
-                case CrossBottomTabbedPage _:
-                    return mainPage.As<CrossBottomTabbedPage>().GetNavPageInsideTabbedPage();
-                case CrossMasterDetailPage _:
-                    return mainPage.As<CrossMasterDetailPage>().GetNavPageInsideMasterDetailPage();
-                default:
-                    throw new InvalidCastException("No page type detected");
-            }
-        }
-
-        private static CrossNavigationPage GetItSelfNavigationPage(
-            this CrossNavigationPage navigationPage)
-        {
-            var modalPage = navigationPage.CurrentPage.Navigation.ModalStack.LastOrDefault();
-            var foundedPage = modalPage is CrossNavigationPage modalNavigationPage
-                ? modalNavigationPage
-                : navigationPage;
-            return foundedPage;
-        }
-
-        private static CrossNavigationPage GetNavPageInsideTabbedPage(
-            this CrossBottomTabbedPage bottomTabbedPage)
-        {
-            var curPageOfTabbedPage = bottomTabbedPage.CurrentPage;
-            var navPage = curPageOfTabbedPage is CrossNavigationPage
-                ? curPageOfTabbedPage.As<CrossNavigationPage>()
-                : curPageOfTabbedPage.As<CrossMasterDetailPage>().Detail.As<CrossNavigationPage>();
-            var modalPage = navPage.CurrentPage.Navigation.ModalStack.LastOrDefault();
-            return modalPage is CrossNavigationPage modalNavigationPage
-                ? modalNavigationPage
-                : navPage;
-        }
-
-        private static CrossNavigationPage GetNavPageInsideMasterDetailPage(
-            this CrossMasterDetailPage masterDetailPage)
-        {
-            CrossNavigationPage foundedPage = null;
-            var curPageOfMasterDetail = masterDetailPage.Detail;
-            switch (curPageOfMasterDetail)
-            {
-                case CrossNavigationPage _:
-                    var navigationPage = curPageOfMasterDetail.As<CrossNavigationPage>();
-                    foundedPage = navigationPage.GetItSelfNavigationPage();
-                    break;
-                case CrossBottomTabbedPage _:
-                    var tabbedPage = curPageOfMasterDetail.As<CrossBottomTabbedPage>();
-                    foundedPage = tabbedPage.GetNavPageInsideTabbedPage();
-                    break;
-            }
-
-            return foundedPage;
+            return foundedPage.As<GojekBasePageView>();
         }
 
         #endregion
@@ -658,11 +553,11 @@ namespace Gojek.src.Services.NavigationService
         public static async Task OnNavigatedBackTo(this Page page, NavigationParameters parameters = null)
         {
             //call on page
-            var nativePage = page.As<CrossNativeBasePageView>();
+            var nativePage = page.As<GojekBasePageView>();
             await nativePage.OnNavigatedBackTo(parameters: parameters);
 
             //call on vm
-            var bindingContext = page.BindingContext.As<CrossNativeBasePageViewModel>();
+            var bindingContext = page.BindingContext.As<GojekBasePageViewModel>();
             await bindingContext.OnNavigatedBackTo(parameters: parameters);
         }
 
@@ -673,10 +568,10 @@ namespace Gojek.src.Services.NavigationService
         public static void OnConnected(this Page page)
         {
             //call on page
-            var nativePage = page.As<CrossNativeBasePageView>();
+            var nativePage = page.As<GojekBasePageView>();
             nativePage?.OnConnected();
 
-            var bindingContext = nativePage?.BindingContext.As<CrossNativeBasePageViewModel>();
+            var bindingContext = nativePage?.BindingContext.As<GojekBasePageViewModel>();
             bindingContext?.OnConnected();
         }
 
@@ -687,10 +582,10 @@ namespace Gojek.src.Services.NavigationService
         public static void OnDisConnected(this Page page)
         {
             //call on page
-            var nativePage = page.As<CrossNativeBasePageView>();
+            var nativePage = page.As<GojekBasePageView>();
             nativePage?.OnDisConnected();
 
-            var bindingContext = nativePage?.BindingContext.As<CrossNativeBasePageViewModel>();
+            var bindingContext = nativePage?.BindingContext.As<GojekBasePageViewModel>();
             bindingContext?.OnDisConnected();
         }
     }
