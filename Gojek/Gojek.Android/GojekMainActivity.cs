@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 using Android.OS;
+using Plugin.CurrentActivity;
 
 namespace Gojek.Droid
 {
@@ -23,6 +24,7 @@ namespace Gojek.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Android.Glide.Forms.Init(this);
             Rg.Plugins.Popup.Popup.Init(this);
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
             LoadApplication(new GojekApp());
         }

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Gojek.Services.NavigationService;
+using Gojek.Utilities.Spinner;
 using ReactiveUI;
 using Xamarin.Forms;
 

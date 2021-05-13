@@ -141,6 +141,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="GojekAppDelegate.cs" />
+    <Compile Include="src\DPServices\PlatformMethods.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -199,6 +200,9 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="BTProgressHUD">
+      <Version>1.3.2</Version>
+    </PackageReference>
     <PackageReference Include="ReactiveUI.Events.XamForms">
       <Version>13.3.2</Version>
     </PackageReference>
@@ -212,6 +216,9 @@
       <Version>1.1.4</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.Buttons">
+      <Version>19.1.0.63</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfListView">
       <Version>19.1.0.63</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfTabView">
@@ -230,4 +237,5 @@
       <Name>Gojek</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
 </Project>

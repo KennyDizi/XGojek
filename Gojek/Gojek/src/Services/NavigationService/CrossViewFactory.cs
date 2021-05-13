@@ -52,19 +52,6 @@ namespace Gojek.Services.NavigationService
 
             #region title
 
-            if (string.IsNullOrEmpty(viewModel.Title))
-            {
-                try
-                {
-                    viewModel.Title = CrossPageTitleResourceExtension.GetRes(viewModelName);
-                }
-                catch (Exception exception)
-                {
-                    System.Diagnostics.Debug.WriteLine(
-                        $"Can't get page title in class: {viewModelName} with error: {exception.Message}");
-                }
-            }
-
             //set an toan truong hop quen dat title cho mot trang nao do trong resource
             if (!string.IsNullOrEmpty(viewModel.Title))
             {

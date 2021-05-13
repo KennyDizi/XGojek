@@ -1,5 +1,9 @@
-﻿using Gojek.Views.HomePage;
-using Xamarin.Forms;
+﻿using Autofac;
+using Gojek.Services.NavigationService;
+using Gojek.Utilities;
+using Gojek.Views.HomePage;
+using Xamarin.Forms.PlatformConfiguration.AndroidSpecific.AppCompat;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace Gojek
 {
@@ -8,9 +12,28 @@ namespace Gojek
         public GojekApp()
         {
             InitializeComponent();
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NDQ1NDU5QDMxMzkyZTMxMmUzMEZadHNnWTJyTkxlVkVrMGZadVpFczBkL1FBK0hwODNlUnlicVltVUIveDg9");
+            //init ioc
+            CrossIoCDefine.Init();
+
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(
+                "NDQ1NDU5QDMxMzkyZTMxMmUzMEZadHNnWTJyTkxlVkVrMGZadVpFczBkL1FBK0hwODNlUnlicVltVUIveDg9");
             Sharpnado.MaterialFrame.Initializer.Initialize(loggerEnable: false, debugLogEnable: false);
-            MainPage = new NavigationPage(new GojekV2HomePageView());
+
+            // disables accessibility scaling for named font sizes
+            this.On<Xamarin.Forms.PlatformConfiguration.iOS>()
+                .SetHandleControlUpdatesOnMainThread(true)
+                .SetEnableAccessibilityScalingForNamedFontSizes(false);
+
+            // simulate appearing/disppering look like ios
+            this.On<Xamarin.Forms.PlatformConfiguration.Android>()
+                .SendAppearingEventOnResume(value: false)
+                .SendDisappearingEventOnPause(value: false)
+                .ShouldPreserveKeyboardOnResume(value: true);
+
+            var factory = CrossIoCDefine.CrossIocContainer.Resolve<ICrossViewFactory>();
+            var introPage = factory.ResolvePage<GojekV2HomePageViewModel>(CrossPageKeys.GojekV2HomePage.ToString());
+
+            MainPage = new Xamarin.Forms.NavigationPage(introPage);
         }
 
         protected override void OnStart()

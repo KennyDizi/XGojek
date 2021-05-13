@@ -10,9 +10,6 @@
     xmlns:views="clr-namespace:Gojek.Views;assembly=Gojek"
     x:TypeArguments="homePage:GojekV2HomePageViewModel"
     NavigationPage.HasNavigationBar="False">
-    <ContentPage.BindingContext>
-        <homePage:GojekV2HomePageViewModel />
-    </ContentPage.BindingContext>
     <materialFrame:MaterialFrame MaterialBlurStyle="Light">
         <StackLayout Margin="20" Spacing="5">
             <textInputLayout:SfTextInputLayout
