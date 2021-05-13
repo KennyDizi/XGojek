@@ -23,6 +23,7 @@ namespace Gojek.iOS
             Syncfusion.XForms.iOS.TabView.SfTabViewRenderer.Init();
             Syncfusion.XForms.iOS.Border.SfBorderRenderer.Init();
             Syncfusion.XForms.iOS.Buttons.SfSegmentedControlRenderer.Init();
+            Syncfusion.XForms.iOS.TextInputLayout.SfTextInputLayoutRenderer.Init();
             Xamarin.Forms.Nuke.FormsHandler.Init();
             iOSMaterialFrameRenderer.Init();
 

@@ -3,13 +3,14 @@ using Xamarin.Forms;
 
 namespace Gojek
 {
-    public partial class GojekApp : Application
+    public partial class GojekApp
     {
         public GojekApp()
         {
             InitializeComponent();
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("xxx");
-            MainPage = new NavigationPage(new GojekHomePageView());
+            Sharpnado.MaterialFrame.Initializer.Initialize(loggerEnable: false, debugLogEnable: false);
+            MainPage = new NavigationPage(new GojekV2HomePageView());
         }
 
         protected override void OnStart()

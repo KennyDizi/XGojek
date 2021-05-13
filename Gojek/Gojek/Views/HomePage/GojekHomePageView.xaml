@@ -3,59 +3,144 @@
     x:Class="Gojek.Views.HomePage.GojekHomePageView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     xmlns:homePage="clr-namespace:Gojek.Views.HomePage;assembly=Gojek"
     xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+    xmlns:textInputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
     xmlns:views="clr-namespace:Gojek.Views;assembly=Gojek"
     x:TypeArguments="homePage:GojekHomePageViewModel"
+    BackgroundColor="DarkSlateGray"
     NavigationPage.HasNavigationBar="False">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <buttons:SfSegmentedControl VisibleSegmentsCount="3" />
-        <tabView:SfTabView
-            Grid.Row="1"
-            EnableVirtualization="True"
-            TabHeaderPosition="Top"
-            VisibleHeaderCount="3">
-            <tabView:SfTabView.SelectionIndicatorSettings>
-                <tabView:SelectionIndicatorSettings Position="Fill" Color="Transparent" />
-            </tabView:SfTabView.SelectionIndicatorSettings>
-            <tabView:SfTabItem x:Name="TabItemNum1">
-                <tabView:SfTabItem.HeaderContent>
-                    <ContentView>
-                        <Button
-                            BackgroundColor="Aqua"
-                            HeightRequest="40"
-                            HorizontalOptions="Center"
-                            VerticalOptions="Center"
-                            WidthRequest="60" />
-                    </ContentView>
-                </tabView:SfTabItem.HeaderContent>
-            </tabView:SfTabItem>
-            <tabView:SfTabItem>
-                <tabView:SfTabItem.HeaderContent>
-                    <border:SfBorder
-                        BackgroundColor="Red"
-                        CornerRadius="20"
-                        HasShadow="True"
+    <tabView:SfTabView
+        EnableVirtualization="True"
+        TabHeaderPosition="Top"
+        VisibleHeaderCount="3">
+        <tabView:SfTabView.SelectionIndicatorSettings>
+            <tabView:SelectionIndicatorSettings Position="Fill" Color="Transparent" />
+        </tabView:SfTabView.SelectionIndicatorSettings>
+        <tabView:SfTabItem x:Name="TabItemNum1">
+            <tabView:SfTabItem.HeaderContent>
+                <ContentView>
+                    <buttons:SfButton
+                        x:Name="SfButtonNum1"
+                        BackgroundColor="MediumPurple"
+                        CornerRadius="10"
                         HeightRequest="40"
-                        WidthRequest="80" />
-                </tabView:SfTabItem.HeaderContent>
-            </tabView:SfTabItem>
-            <tabView:SfTabItem>
-                <tabView:SfTabItem.HeaderContent>
-                    <border:SfBorder
-                        BackgroundColor="Red"
+                        HorizontalOptions="Center"
+                        IsEnabled="False"
+                        Text="Home"
+                        TextColor="White"
+                        VerticalOptions="Center"
+                        WidthRequest="60" />
+                </ContentView>
+            </tabView:SfTabItem.HeaderContent>
+            <tabView:SfTabItem.Content>
+                <ContentView>
+                    <textInputLayout:SfTextInputLayout
+                        Margin="20"
+                        Padding="0"
+                        ContainerType="Outlined"
+                        Hint="What's your name?"
+                        OutlineCornerRadius="10">
+                        <Entry Text="John" />
+                    </textInputLayout:SfTextInputLayout>
+                </ContentView>
+            </tabView:SfTabItem.Content>
+        </tabView:SfTabItem>
+        <tabView:SfTabItem>
+            <tabView:SfTabItem.HeaderContent>
+                <ContentView>
+                    <buttons:SfButton
+                        x:Name="SfButtonNum2"
+                        BackgroundColor="MediumPurple"
                         CornerRadius="20"
-                        HasShadow="True"
                         HeightRequest="40"
-                        WidthRequest="80" />
-                </tabView:SfTabItem.HeaderContent>
-            </tabView:SfTabItem>
-        </tabView:SfTabView>
-    </Grid>
+                        HorizontalOptions="Center"
+                        Text="Promotion"
+                        TextColor="White"
+                        VerticalOptions="Center"
+                        WidthRequest="60" />
+                </ContentView>
+            </tabView:SfTabItem.HeaderContent>
+            <tabView:SfTabItem.Content>
+                <ContentView>
+                    <textInputLayout:SfTextInputLayout
+                        Margin="20"
+                        ContainerType="Filled"
+                        Hint="Name">
+                        <Entry Text="John" />
+                    </textInputLayout:SfTextInputLayout>
+                </ContentView>
+            </tabView:SfTabItem.Content>
+        </tabView:SfTabItem>
+        <tabView:SfTabItem>
+            <tabView:SfTabItem.HeaderContent>
+                <ContentView>
+                    <buttons:SfButton
+                        x:Name="SfButtonNum3"
+                        BackgroundColor="MediumPurple"
+                        CornerRadius="20"
+                        HeightRequest="40"
+                        HorizontalOptions="Center"
+                        Text="Home"
+                        TextColor="White"
+                        VerticalOptions="Center"
+                        WidthRequest="60" />
+                </ContentView>
+            </tabView:SfTabItem.HeaderContent>
+            <tabView:SfTabItem.Content>
+                <StackLayout>
+                    <StackLayout.Resources>
+                        <Style TargetType="Entry">
+                            <Setter Property="Margin" Value="20, 0" />
+                            <Setter Property="FontSize" Value="18" />
+                        </Style>
+
+                        <Style TargetType="Label">
+                            <Setter Property="Margin" Value="20, 30, 20, 0" />
+                            <Setter Property="FontSize" Value="Large" />
+                        </Style>
+                    </StackLayout.Resources>
+
+                    <Label Text="Normal Entry:" />
+                    <Entry Placeholder="Ahihi" />
+                    <Label Text="Entry with VSM: " />
+                    <Entry>
+                        <Entry.Triggers>
+                            <DataTrigger
+                                Binding="{Binding Source={x:Reference entry3}, Path=Text.Length}"
+                                TargetType="Entry"
+                                Value="0">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                        </Entry.Triggers>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="Lime" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Focused">
+                                    <VisualState.Setters>
+                                        <Setter Property="FontSize" Value="36" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="Pink" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Entry>
+                    <Label Text="Entry to enable 2nd Entry:" />
+                    <Entry
+                        x:Name="entry3"
+                        Placeholder="Type something to enable 2nd Entry"
+                        Text="" />
+                </StackLayout>
+            </tabView:SfTabItem.Content>
+        </tabView:SfTabItem>
+    </tabView:SfTabView>
 </views:GojekBasePageView>

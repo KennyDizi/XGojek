@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:GojekBasePageView
+    x:Class="Gojek.Views.HomePage.GojekV2HomePageView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:homePage="clr-namespace:Gojek.Views.HomePage;assembly=Gojek"
+    xmlns:materialFrame="http://sharpnado.com"
+    xmlns:textInputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+    xmlns:views="clr-namespace:Gojek.Views;assembly=Gojek"
+    x:TypeArguments="homePage:GojekV2HomePageViewModel"
+    NavigationPage.HasNavigationBar="False">
+    <materialFrame:MaterialFrame
+        AcrylicGlowColor="DarkSlateGray"
+        AndroidBlurOverlayColor="MediumPurple"
+        MaterialBlurStyle="Light">
+        <StackLayout Margin="20" Spacing="5">
+            <textInputLayout:SfTextInputLayout
+                ContainerType="Filled"
+                FocusedStrokeWidth="1"
+                Hint="What's your name?">
+                <textInputLayout:SfTextInputLayout.HintLabelStyle>
+                    <textInputLayout:LabelStyle FontSize="12" />
+                </textInputLayout:SfTextInputLayout.HintLabelStyle>
+                <Entry x:Name="Entry1" FontSize="16" />
+            </textInputLayout:SfTextInputLayout>
+
+            <textInputLayout:SfTextInputLayout
+                ContainerType="Filled"
+                EnablePasswordVisibilityToggle="True"
+                FocusedStrokeWidth="1"
+                Hint="What's your password?">
+                <textInputLayout:SfTextInputLayout.HintLabelStyle>
+                    <textInputLayout:LabelStyle FontSize="12" />
+                </textInputLayout:SfTextInputLayout.HintLabelStyle>
+                <Entry x:Name="Entry2" FontSize="16" />
+            </textInputLayout:SfTextInputLayout>
+
+            <buttons:SfButton
+                x:Name="ButtonLogin"
+                Margin="0,30,0,0"
+                CornerRadius="5"
+                HeightRequest="40"
+                IsEnabled="False"
+                Text="Let's start new trip" />
+        </StackLayout>
+    </materialFrame:MaterialFrame>
+</views:GojekBasePageView>
