@@ -56,14 +56,29 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="glidex.forms">
+      <Version>2.1.0.470</Version>
+    </PackageReference>
     <PackageReference Include="ReactiveUI.Events.XamForms">
-      <Version>13.3.1</Version>
+      <Version>13.3.2</Version>
     </PackageReference>
     <PackageReference Include="ReactiveUI.XamForms">
-      <Version>13.3.1</Version>
+      <Version>13.3.2</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.Buttons">
+      <Version>19.1.0.63</Version>
     </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfTabView">
-      <Version>19.1.0.59</Version>
+      <Version>19.1.0.63</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Glide">
+      <Version>4.11.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Glide.DiskLruCache">
+      <Version>4.11.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Glide.GifDecoder">
+      <Version>4.11.0.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />

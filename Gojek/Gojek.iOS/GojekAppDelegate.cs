@@ -21,8 +21,10 @@ namespace Gojek.iOS
             global::Xamarin.Forms.Forms.Init();
             Syncfusion.XForms.iOS.TabView.SfTabViewRenderer.Init();
             Syncfusion.XForms.iOS.Border.SfBorderRenderer.Init();
-            LoadApplication(new GojekApp());
+            Syncfusion.XForms.iOS.Buttons.SfSegmentedControlRenderer.Init();
+            Xamarin.Forms.Nuke.FormsHandler.Init();
 
+            LoadApplication(new GojekApp());
             return base.FinishedLaunching(app, options);
         }
     }

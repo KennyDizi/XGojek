@@ -21,6 +21,8 @@ namespace Gojek.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            Android.Glide.Forms.Init(this);
+
             LoadApplication(new GojekApp());
         }
 

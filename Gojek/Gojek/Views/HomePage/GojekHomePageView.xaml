@@ -4,44 +4,58 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     xmlns:homePage="clr-namespace:Gojek.Views.HomePage;assembly=Gojek"
     xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
     xmlns:views="clr-namespace:Gojek.Views;assembly=Gojek"
-    x:TypeArguments="homePage:GojekHomePageViewModel">
-    <tabView:SfTabView
-        EnableVirtualization="True"
-        TabHeaderDirection="RightToLeft"
-        TabHeaderPosition="Top"
-        VisibleHeaderCount="3">
-        <tabView:SfTabItem>
-            <tabView:SfTabItem.HeaderContent>
-                <border:SfBorder
-                    BackgroundColor="Red"
-                    CornerRadius="20"
-                    HasShadow="True"
-                    HeightRequest="40"
-                    WidthRequest="80" />
-            </tabView:SfTabItem.HeaderContent>
-        </tabView:SfTabItem>
-        <tabView:SfTabItem>
-            <tabView:SfTabItem.HeaderContent>
-                <border:SfBorder
-                    BackgroundColor="Red"
-                    CornerRadius="20"
-                    HasShadow="True"
-                    HeightRequest="40"
-                    WidthRequest="80" />
-            </tabView:SfTabItem.HeaderContent>
-        </tabView:SfTabItem>
-        <tabView:SfTabItem>
-            <tabView:SfTabItem.HeaderContent>
-                <border:SfBorder
-                    BackgroundColor="Red"
-                    CornerRadius="20"
-                    HasShadow="True"
-                    HeightRequest="40"
-                    WidthRequest="80" />
-            </tabView:SfTabItem.HeaderContent>
-        </tabView:SfTabItem>
-    </tabView:SfTabView>
+    x:TypeArguments="homePage:GojekHomePageViewModel"
+    NavigationPage.HasNavigationBar="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <buttons:SfSegmentedControl VisibleSegmentsCount="3">
+
+        </buttons:SfSegmentedControl>
+        <tabView:SfTabView
+            Grid.Row="1"
+            EnableVirtualization="True"
+            TabHeaderPosition="Top"
+            VisibleHeaderCount="3">
+            <tabView:SfTabView.SelectionIndicatorSettings>
+                <tabView:SelectionIndicatorSettings Position="Fill" Color="Transparent" />
+            </tabView:SfTabView.SelectionIndicatorSettings>
+            <tabView:SfTabItem>
+                <tabView:SfTabItem.HeaderContent>
+                    <ContentView>
+                        <Button
+                            BackgroundColor="Aqua"
+                            HeightRequest="40"
+                            WidthRequest="60" />
+                    </ContentView>
+                </tabView:SfTabItem.HeaderContent>
+            </tabView:SfTabItem>
+            <tabView:SfTabItem>
+                <tabView:SfTabItem.HeaderContent>
+                    <border:SfBorder
+                        BackgroundColor="Red"
+                        CornerRadius="20"
+                        HasShadow="True"
+                        HeightRequest="40"
+                        WidthRequest="80" />
+                </tabView:SfTabItem.HeaderContent>
+            </tabView:SfTabItem>
+            <tabView:SfTabItem>
+                <tabView:SfTabItem.HeaderContent>
+                    <border:SfBorder
+                        BackgroundColor="Red"
+                        CornerRadius="20"
+                        HasShadow="True"
+                        HeightRequest="40"
+                        WidthRequest="80" />
+                </tabView:SfTabItem.HeaderContent>
+            </tabView:SfTabItem>
+        </tabView:SfTabView>
+    </Grid>
 </views:GojekBasePageView>
