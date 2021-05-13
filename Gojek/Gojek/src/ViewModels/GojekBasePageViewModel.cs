@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Gojek.src.Services.DialogServices;
-using Gojek.src.Services.NavigationService;
+using Gojek.Services.DialogServices;
+using Gojek.Services.NavigationService;
 using ReactiveUI;
 using Xamarin.Forms;
 

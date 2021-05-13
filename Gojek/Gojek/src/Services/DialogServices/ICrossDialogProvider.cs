@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace Gojek.src.Services.DialogServices
+namespace Gojek.Services.DialogServices
 {
     public interface ICrossDialogProvider
     {

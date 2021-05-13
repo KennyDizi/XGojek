@@ -5,7 +5,7 @@ using Gojek.Views;
 using Rg.Plugins.Popup.Pages;
 using Xamarin.Forms;
 
-namespace Gojek.src.Services.NavigationService
+namespace Gojek.Services.NavigationService
 {
     public interface ICrossNavigator
     {

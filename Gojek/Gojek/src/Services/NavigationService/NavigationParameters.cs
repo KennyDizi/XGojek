@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace Gojek.src.Services.NavigationService
+namespace Gojek.Services.NavigationService
 {
     /// <inheritdoc />
     /// <summary>

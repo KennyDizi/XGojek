@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Gojek.src.Services.NavigationService
+namespace Gojek.Services.NavigationService
 {
     public class CrossNamingConventions : ICrossNamingConventions
     {

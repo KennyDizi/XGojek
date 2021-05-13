@@ -1,4 +1,4 @@
-﻿namespace Gojek.src.Services.NavigationService
+﻿namespace Gojek.Services.NavigationService
 {
     public interface ICrossNamingConventions
     {

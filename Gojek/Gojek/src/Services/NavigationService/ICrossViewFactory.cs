@@ -1,7 +1,7 @@
 ﻿using Gojek.ViewModels;
 using Gojek.Views;
 
-namespace Gojek.src.Services.NavigationService
+namespace Gojek.Services.NavigationService
 {
     public interface ICrossViewFactory
     {

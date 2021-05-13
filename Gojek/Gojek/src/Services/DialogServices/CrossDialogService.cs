@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Gojek.src.Services.DialogServices
+namespace Gojek.Services.DialogServices
 {
     public class CrossDialogService : ICrossDialogService
     {

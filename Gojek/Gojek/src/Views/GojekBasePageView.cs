@@ -1,5 +1,5 @@
 ﻿using System.Reactive.Disposables;
-using Gojek.src.Services.NavigationService;
+using Gojek.Services.NavigationService;
 using Gojek.ViewModels;
 using ReactiveUI;
 using Xamarin.Forms;

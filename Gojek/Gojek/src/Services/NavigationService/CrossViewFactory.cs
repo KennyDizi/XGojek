@@ -2,13 +2,13 @@
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using Autofac;
-using Gojek.src.Services.DialogServices;
+using Gojek.Services.DialogServices;
 using Gojek.ViewModels;
 using Gojek.Views;
 using ReactiveUI;
 using Xamarin.Forms;
 
-namespace Gojek.src.Services.NavigationService
+namespace Gojek.Services.NavigationService
 {
     public class CrossViewFactory : ICrossViewFactory
     {

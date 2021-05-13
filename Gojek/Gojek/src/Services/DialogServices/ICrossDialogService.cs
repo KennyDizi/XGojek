@@ -1,4 +1,4 @@
-﻿namespace Gojek.src.Services.DialogServices
+﻿namespace Gojek.Services.DialogServices
 {
     public interface ICrossDialogService
     {

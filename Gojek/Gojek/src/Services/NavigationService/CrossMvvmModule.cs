@@ -1,11 +1,11 @@
 ﻿using System;
 using Autofac;
-using Gojek.src.Services.DialogServices;
+using Gojek.Services.DialogServices;
 using ReactiveUI;
 using ReactiveUI.XamForms;
 using Xamarin.Forms;
 
-namespace Gojek.src.Services.NavigationService
+namespace Gojek.Services.NavigationService
 {
     public class CrossMvvmModule : Module
     {

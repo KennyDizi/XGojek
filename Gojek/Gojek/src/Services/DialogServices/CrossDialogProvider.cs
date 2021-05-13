@@ -2,11 +2,11 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Gojek.src.Services.NavigationService;
+using Gojek.Services.NavigationService;
 using ReactiveUI;
 using Xamarin.Forms;
 
-namespace Gojek.src.Services.DialogServices
+namespace Gojek.Services.DialogServices
 {
     public class CrossDialogProvider : ICrossDialogProvider
     {
