@@ -13,6 +13,7 @@
   <ItemGroup>
     <PackageReference Include="ReactiveUI.Events.XamForms" Version="13.3.2" />
     <PackageReference Include="ReactiveUI.XamForms" Version="13.3.2" />
+    <PackageReference Include="Sharpnado.MaterialFrame" Version="1.1.4" />
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="19.1.0.63" />
     <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="19.1.0.63" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />

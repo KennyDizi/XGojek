@@ -65,6 +65,9 @@
     <PackageReference Include="ReactiveUI.XamForms">
       <Version>13.3.2</Version>
     </PackageReference>
+    <PackageReference Include="Sharpnado.MaterialFrame">
+      <Version>1.1.4</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.Buttons">
       <Version>19.1.0.63</Version>
     </PackageReference>
@@ -79,6 +82,12 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Glide.GifDecoder">
       <Version>4.11.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.MediaRouter">
+      <Version>1.2.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.Palette">
+      <Version>1.0.0.7</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />

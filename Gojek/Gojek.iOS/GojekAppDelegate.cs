@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using Sharpnado.MaterialFrame.iOS;
 using UIKit;
 
 namespace Gojek.iOS
@@ -23,6 +24,7 @@ namespace Gojek.iOS
             Syncfusion.XForms.iOS.Border.SfBorderRenderer.Init();
             Syncfusion.XForms.iOS.Buttons.SfSegmentedControlRenderer.Init();
             Xamarin.Forms.Nuke.FormsHandler.Init();
+            iOSMaterialFrameRenderer.Init();
 
             LoadApplication(new GojekApp());
             return base.FinishedLaunching(app, options);

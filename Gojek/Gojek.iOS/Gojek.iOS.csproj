@@ -129,6 +129,9 @@
     <PackageReference Include="ReactiveUI.XamForms">
       <Version>13.3.2</Version>
     </PackageReference>
+    <PackageReference Include="Sharpnado.MaterialFrame">
+      <Version>1.1.4</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.Buttons">
       <Version>19.1.0.63</Version>
     </PackageReference>

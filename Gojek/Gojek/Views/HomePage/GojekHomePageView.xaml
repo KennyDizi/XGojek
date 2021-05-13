@@ -15,9 +15,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <buttons:SfSegmentedControl VisibleSegmentsCount="3">
-
-        </buttons:SfSegmentedControl>
+        <buttons:SfSegmentedControl VisibleSegmentsCount="3" />
         <tabView:SfTabView
             Grid.Row="1"
             EnableVirtualization="True"
@@ -26,12 +24,14 @@
             <tabView:SfTabView.SelectionIndicatorSettings>
                 <tabView:SelectionIndicatorSettings Position="Fill" Color="Transparent" />
             </tabView:SfTabView.SelectionIndicatorSettings>
-            <tabView:SfTabItem>
+            <tabView:SfTabItem x:Name="TabItemNum1">
                 <tabView:SfTabItem.HeaderContent>
                     <ContentView>
                         <Button
                             BackgroundColor="Aqua"
                             HeightRequest="40"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
                             WidthRequest="60" />
                     </ContentView>
                 </tabView:SfTabItem.HeaderContent>
