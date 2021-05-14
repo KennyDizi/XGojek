@@ -3,3 +3,21 @@ C:\jdk1.8.0_291\bin\keytool -importkeystore -srckeystore gonow_enduser.keystore 
 
 C:\jdk1.8.0_291\bin\keytool -genkey -v -keystore gonow_partner.keystore -alias gonow_partner -storepass vQPnv2KnvAMYWjZd -keypass rquEAn4fwCxZEjYv -keyalg RSA -validity 36500
 C:\jdk1.8.0_291\bin\keytool -importkeystore -srckeystore gonow_partner.keystore -destkeystore gonow_partner.keystore -deststoretype pkcs12 -destkeypass specified
+
+
+
+
+
+
+
+
+
+
+
+
+C:\jdk1.8.0_291\bin\keytool -genkey -v -keystore gonow_enduser_v2.keystore -alias gonow_enduser_v2 -storepass b4GjbAz8p6DBqcxN9Ub2ARuj -keypass b4GjbAz8p6DBqcxN9Ub2ARuj -keyalg RSA -validity 36500
+C:\jdk1.8.0_291\bin\keytool -importkeystore -srckeystore gonow_enduser_v2.keystore -destkeystore gonow_enduser_v2.keystore -deststoretype pkcs12
+
+
+C:\jdk1.8.0_291\bin\keytool -genkey -v -keystore gonow_partner_v2.keystore -alias gonow_partner_v2 -storepass VAUecZAa4uVun4hBgbfF58bA -keypass VAUecZAa4uVun4hBgbfF58bA -keyalg RSA -validity 36500
+C:\jdk1.8.0_291\bin\keytool -importkeystore -srckeystore gonow_partner_v2.keystore -destkeystore gonow_partner_v2.keystore -deststoretype pkcs12

@@ -78,10 +78,10 @@
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidKeyStore>true</AndroidKeyStore>
-    <AndroidSigningKeyStore>gonow_enduser.keystore</AndroidSigningKeyStore>
-    <AndroidSigningKeyAlias>gonow_enduser</AndroidSigningKeyAlias>
-    <AndroidSigningStorePass>RJ9gD8XnfRTuEyPQ</AndroidSigningStorePass>
-    <AndroidSigningKeyPass>LF6GgmQvbb8xgPGA</AndroidSigningKeyPass>
+    <AndroidSigningKeyStore>gonow_enduser_v2.keystore</AndroidSigningKeyStore>
+    <AndroidSigningKeyAlias>gonow_enduser_v2</AndroidSigningKeyAlias>
+    <AndroidSigningStorePass>b4GjbAz8p6DBqcxN9Ub2ARuj</AndroidSigningStorePass>
+    <AndroidSigningKeyPass>b4GjbAz8p6DBqcxN9Ub2ARuj</AndroidSigningKeyPass>
     <AndroidDexTool>d8</AndroidDexTool>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
 	  <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
@@ -109,10 +109,10 @@
     <AndroidSupportedAbis>armeabi-v7a;arm64-v8a</AndroidSupportedAbis>
     <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
     <AndroidKeyStore>true</AndroidKeyStore>
-    <AndroidSigningKeyStore>gonow_partner.keystore</AndroidSigningKeyStore>
-    <AndroidSigningStorePass>vQPnv2KnvAMYWjZd</AndroidSigningStorePass>
-    <AndroidSigningKeyAlias>gonow_partner</AndroidSigningKeyAlias>
-    <AndroidSigningKeyPass>rquEAn4fwCxZEjYv</AndroidSigningKeyPass>
+    <AndroidSigningKeyStore>gonow_partner_v2.keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>VAUecZAa4uVun4hBgbfF58bA</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>gonow_partner_v2</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>VAUecZAa4uVun4hBgbfF58bA</AndroidSigningKeyPass>
     <AndroidManifest>Properties\AndroidManifestPRF1.xml</AndroidManifest>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <AndroidDexTool>d8</AndroidDexTool>
