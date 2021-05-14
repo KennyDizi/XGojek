@@ -72,7 +72,7 @@
     <AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>
     <AndroidSupportedAbis>armeabi-v7a;arm64-v8a</AndroidSupportedAbis>
     <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
-    <BundleAssemblies>true</BundleAssemblies>
+    <BundleAssemblies>false</BundleAssemblies>
     <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
@@ -81,6 +81,7 @@
     <AndroidSigningKeyAlias>gonow_enduser</AndroidSigningKeyAlias>
     <AndroidSigningStorePass>RJ9gD8XnfRTuEyPQ</AndroidSigningStorePass>
     <AndroidSigningKeyPass>LF6GgmQvbb8xgPGA</AndroidSigningKeyPass>
+    <AndroidDexTool>d8</AndroidDexTool>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'RELEASE_PARTNER|AnyCPU'">
     <DebugSymbols>false</DebugSymbols>
