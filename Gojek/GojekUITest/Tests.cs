@@ -33,5 +33,16 @@ namespace GojekUITest
 
             Assert.IsTrue(results.Any());
         }
+
+        [Test]
+        public void TestEnableButton()
+        {
+            app.Screenshot("Welcome screen.");
+            app.EnterText("EntryEndUser", "my name is kenny");
+            app.Screenshot("enter user name");
+
+            app.EnterText("EntryPassword", "my password");
+            app.Screenshot("enter my password");
+        }
     }
 }
