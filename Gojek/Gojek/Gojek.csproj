@@ -23,6 +23,9 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.2.0" />
+    <PackageReference Include="Microsoft.AppCenter" Version="4.2.0" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.2.0" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.2.0" />
     <PackageReference Include="ReactiveUI.Events.XamForms" Version="13.3.2" />
     <PackageReference Include="ReactiveUI.XamForms" Version="13.3.2" />
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.11" />

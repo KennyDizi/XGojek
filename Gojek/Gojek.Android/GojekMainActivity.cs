@@ -1,6 +1,9 @@
 ﻿using Android.App;
 using Android.Runtime;
 using Android.OS;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Plugin.CurrentActivity;
 
 namespace Gojek.Droid
@@ -25,6 +28,9 @@ namespace Gojek.Droid
             Android.Glide.Forms.Init(this);
             Rg.Plugins.Popup.Popup.Init(this);
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
+
+            AppCenter.Start("03c76804-3467-4fc3-8d13-2270d1c6cc4e",
+                typeof(Analytics), typeof(Crashes));
 
             LoadApplication(new GojekApp());
         }
