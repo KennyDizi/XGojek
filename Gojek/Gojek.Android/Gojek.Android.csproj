@@ -26,7 +26,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DEBUG_USER|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\DEBUG_USER\</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG;DEBUG_USER;</DefineConstants>
     <DebugType>portable</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
@@ -42,7 +42,7 @@
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\DEBUG_PARTNER\</OutputPath>
     <BundleAssemblies>false</BundleAssemblies>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG;DEBUG_PARTNER;</DefineConstants>
     <DebugType>portable</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
@@ -56,6 +56,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'RELEASE_USER|AnyCPU'">
     <DebugSymbols>false</DebugSymbols>
     <OutputPath>bin\RELEASE_USER\</OutputPath>
+    <DefineConstants>TRACE;RELEASE_USER;</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>portable</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -84,6 +85,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'RELEASE_PARTNER|AnyCPU'">
     <DebugSymbols>false</DebugSymbols>
     <OutputPath>bin\RELEASE_PARTNER\</OutputPath>
+    <DefineConstants>TRACE;RELEASE_PARTNER;</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>portable</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
