@@ -2,3 +2,5 @@
 /obj
 /Gojek/.vs
 /Gojek/Gojek.Android/Resources/Resource.designer.cs
+/Gojek/GojekUnitest/bin
+/Gojek/GojekUnitest/obj
