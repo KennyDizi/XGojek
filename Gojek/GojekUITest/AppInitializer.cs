@@ -1,6 +1,4 @@
-﻿using System;
-using Xamarin.UITest;
-using Xamarin.UITest.Queries;
+﻿using Xamarin.UITest;
 
 namespace GojekUITest
 {
@@ -10,10 +8,10 @@ namespace GojekUITest
         {
             if (platform == Platform.Android)
             {
-                return ConfigureApp.Android.StartApp();
+                return ConfigureApp.Android.ApkFile("../../../XamTestApps/AGoNow/com.nowsolutions.gonow_enduser-Signed.apk").StartApp();
             }
 
-            return ConfigureApp.iOS.StartApp();
+            return ConfigureApp.iOS.AppBundle("../../../XamTestApps/iOS/com.nowsolutions.gonow_enduser.app").StartApp();
         }
     }
 }
