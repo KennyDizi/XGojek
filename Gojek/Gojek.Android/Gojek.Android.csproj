@@ -38,6 +38,7 @@
     <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DEBUG_PARTNER|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
@@ -53,6 +54,7 @@
     <AndroidSupportedAbis>x86</AndroidSupportedAbis>
     <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
     <AndroidManifest>Properties\AndroidManifestPRF1.xml</AndroidManifest>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'RELEASE_USER|AnyCPU'">
     <DebugSymbols>false</DebugSymbols>

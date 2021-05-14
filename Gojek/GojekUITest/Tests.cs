@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Linq;
+﻿using System.Linq;
 using NUnit.Framework;
 using Xamarin.UITest;
 using Xamarin.UITest.Queries;
@@ -38,7 +36,7 @@ namespace GojekUITest
         public void TestEnableButton()
         {
             app.Screenshot("Welcome screen.");
-            app.EnterText("EntryEndUser", "my name is kenny");
+            app.EnterText(c => c.Marked("EntryEndUser"), "my name is kenny");
             app.Screenshot("enter user name");
 
             app.EnterText("EntryPassword", "my password");
