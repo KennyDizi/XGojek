@@ -65,7 +65,7 @@
     <LangVersion>8.0</LangVersion>
     <ErrorReport>prompt</ErrorReport>
     <AndroidLinkTool>r8</AndroidLinkTool>
-    <AndroidPackageFormat>aab</AndroidPackageFormat>
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
     <AotAssemblies>true</AotAssemblies>
@@ -84,7 +84,7 @@
     <AndroidSigningKeyPass>b4GjbAz8p6DBqcxN9Ub2ARuj</AndroidSigningKeyPass>
     <AndroidDexTool>d8</AndroidDexTool>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
-	  <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'RELEASE_PARTNER|AnyCPU'">
     <DebugSymbols>false</DebugSymbols>
