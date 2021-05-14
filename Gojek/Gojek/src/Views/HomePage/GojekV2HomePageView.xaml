@@ -19,7 +19,10 @@
                 <textInputLayout:SfTextInputLayout.HintLabelStyle>
                     <textInputLayout:LabelStyle FontSize="12" />
                 </textInputLayout:SfTextInputLayout.HintLabelStyle>
-                <Entry x:Name="Entry1" FontSize="16" />
+                <Entry
+                    x:Name="Entry1"
+                    AutomationId="EntryEndUser"
+                    FontSize="16" />
             </textInputLayout:SfTextInputLayout>
 
             <textInputLayout:SfTextInputLayout
@@ -30,7 +33,10 @@
                 <textInputLayout:SfTextInputLayout.HintLabelStyle>
                     <textInputLayout:LabelStyle FontSize="12" />
                 </textInputLayout:SfTextInputLayout.HintLabelStyle>
-                <Entry x:Name="Entry2" FontSize="16" />
+                <Entry
+                    x:Name="Entry2"
+                    AutomationId="EntryPassword"
+                    FontSize="16" />
             </textInputLayout:SfTextInputLayout>
 
             <buttons:SfButton

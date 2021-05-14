@@ -2,6 +2,7 @@
 using Gojek.Services.NavigationService;
 using Gojek.Utilities;
 using Gojek.Views.HomePage;
+using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific.AppCompat;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
@@ -28,6 +29,7 @@ namespace Gojek
             this.On<Xamarin.Forms.PlatformConfiguration.Android>()
                 .SendAppearingEventOnResume(value: false)
                 .SendDisappearingEventOnPause(value: false)
+                .UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize)
                 .ShouldPreserveKeyboardOnResume(value: true);
 
             var factory = CrossIoCDefine.CrossIocContainer.Resolve<ICrossViewFactory>();
