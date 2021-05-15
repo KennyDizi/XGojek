@@ -16,6 +16,7 @@ namespace Gojek.Views.HomePage
 
         private async Task LoginTask()
         {
+            var userName = await this.Dialoger.DisplayPromptAsync("Hi", message: "What's your name?");
             await this.Navigator.PushModalAsNavPageAsync(new GojekHomePageView(), animated: true);
         }
 

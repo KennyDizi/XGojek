@@ -74,10 +74,11 @@ namespace Gojek.Services.DialogServices
         /// <param name="placeholder"></param>
         /// <param name="maxLength"></param>
         /// <param name="keyboard"></param>
+        /// <param name="initialValue"></param>
         /// <returns></returns>
         public async Task<string> DisplayPromptAsync(string title, string message, string accept = "OK",
-            string cancel = "Cancel",
-            string placeholder = null, int maxLength = -1, Keyboard keyboard = default, string initialValue = "")
+            string cancel = "Cancel", string placeholder = null, int maxLength = -1, 
+            Keyboard keyboard = default, string initialValue = "")
         {
             //hide loading first
             CrossSpinner.Instance.HideLoadingOverlay("DialogProvider");
@@ -117,8 +118,8 @@ namespace Gojek.Services.DialogServices
         /// <param name="actionAcceptParam"></param>
         /// <param name="actionCancelParam"></param>
         public async Task DisplayAlertEx(string title, string message, string accept, string cancel,
-            Action<object> actionAccept = null,
-            Action<object> actionCancel = null, object actionAcceptParam = null, object actionCancelParam = null)
+            Action<object> actionAccept = null, Action<object> actionCancel = null,
+            object actionAcceptParam = null, object actionCancelParam = null)
         {
             //hide loading first
             CrossSpinner.Instance.HideLoadingOverlay("DialogProvider");
@@ -145,8 +146,7 @@ namespace Gojek.Services.DialogServices
         /// <param name="actionAccept"></param>
         /// <param name="actionAcceptParam"></param>
         public async Task DisplayAlertEx(string title, string message, string accept,
-            Action<object> actionAccept = null,
-            object actionAcceptParam = null)
+            Action<object> actionAccept = null, object actionAcceptParam = null)
         {
             //hide loading first
             CrossSpinner.Instance.HideLoadingOverlay("DialogProvider");
@@ -191,8 +191,8 @@ namespace Gojek.Services.DialogServices
         /// <param name="destruction"></param>
         /// <param name="executeCommand"></param>
         /// <param name="buttons"></param>
-        public async Task DisplayActionSheetEx(string title, string cancel, string destruction, ICommand executeCommand,
-            params string[] buttons)
+        public async Task DisplayActionSheetEx(string title, string cancel, string destruction, 
+            ICommand executeCommand, params string[] buttons)
         {
             var result = await _pageResolver().DisplayActionSheet(title, cancel, destruction, buttons);
             var index = buttons.ToList().IndexOf(result);
@@ -208,7 +208,7 @@ namespace Gojek.Services.DialogServices
 
         /// <inheritdoc />
         /// <summary>
-        /// if you want use INavigation when use actionsheet
+        /// if you want use INavigation when use action sheet
         /// </summary>
         /// <param name="title"></param>
         /// <param name="cancel"></param>
@@ -218,8 +218,7 @@ namespace Gojek.Services.DialogServices
         /// <param name="buttons"></param>
         /// <returns></returns>
         public async Task DisplayActionSheetExWitNav(string title, string cancel, string destruction,
-            ICommand executeCommand,
-            bool needUseNavigator, params string[] buttons)
+            ICommand executeCommand, bool needUseNavigator, params string[] buttons)
         {
             var result = await _pageResolver().DisplayActionSheet(title, cancel, destruction, buttons);
             var index = buttons.ToList().IndexOf(result);
@@ -234,7 +233,7 @@ namespace Gojek.Services.DialogServices
         }
     }
 
-    public static class CrosDialogExs
+    public static class CrossDialogExs
     {
         public static async Task DisplayAlert(this ICrossDialogProvider dialoger, string message)
         {
