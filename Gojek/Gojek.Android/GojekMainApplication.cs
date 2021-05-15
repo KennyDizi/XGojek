@@ -1,7 +1,9 @@
 ﻿using Android.App;
 using Android.Runtime;
 using System;
+using Android.OS;
 using Plugin.CurrentActivity;
+using Android.Gms.Security;
 
 namespace Gojek.Droid
 {
@@ -21,6 +23,12 @@ namespace Gojek.Droid
         {
             base.OnCreate();
             CrossCurrentActivity.Current.Init(this);
+
+            if (Build.VERSION.SdkInt < BuildVersionCodes.Lollipop)
+            {
+                // Support TLS1.2 on Android versions before Lollipop
+                ProviderInstaller.InstallIfNeeded(Application.Context);
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using ModernHttpClient;
 using Newtonsoft.Json;
 
 namespace Gojek.Utilities
@@ -11,6 +12,10 @@ namespace Gojek.Utilities
     public class CrossRestClient : HttpClient
     {
         public CrossRestClient()
+        {
+        }
+
+        public CrossRestClient(HttpMessageHandler handler) : base(handler: handler)
         {
         }
 
@@ -46,11 +51,8 @@ namespace Gojek.Utilities
         /// <returns>Task of type T</returns>
         public async Task<T> GetAsync<T>(string uri)
         {
-            HttpResponseMessage response = null;
-
-            response = await GetAsync(uri).ConfigureAwait(false);
-
-            var jsonContent = await response.Content.ReadAsStringAsync();
+            var response = await GetAsync(uri).ConfigureAwait(false);
+            await response.Content.ReadAsStringAsync();
 
             return await GetResponseObject<T>(response);
         }
@@ -79,8 +81,7 @@ namespace Gojek.Utilities
             var json = JsonConvert.SerializeObject(obj);
 
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = null;
-            response = await PutAsync(uri, content).ConfigureAwait(false);
+            var response = await PutAsync(uri, content).ConfigureAwait(false);
 
             return await GetResponseObject<U>(response);
         }
@@ -111,8 +112,7 @@ namespace Gojek.Utilities
             var json = JsonConvert.SerializeObject(obj);
 
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = null;
-            response = await PutAsync(uri, content).ConfigureAwait(false);
+            var response = await PutAsync(uri, content).ConfigureAwait(false);
 
             return await GetResponseObject<U>(response);
         }
@@ -138,10 +138,7 @@ namespace Gojek.Utilities
         /// <returns>Task of type T</returns>
         public async Task<T> DeleteAsync<T>(string uri)
         {
-            HttpResponseMessage response = null;
-
-            response = await DeleteAsync(uri);
-
+            var response = await DeleteAsync(uri);
             return await GetResponseObject<T>(response).ConfigureAwait(false);
         }
 
@@ -158,7 +155,7 @@ namespace Gojek.Utilities
 
         private static async Task<T> GetResponseObject<T>(HttpResponseMessage response)
         {
-            var serializer = new JsonSerializer() {NullValueHandling = NullValueHandling.Ignore};
+            var serializer = new JsonSerializer {NullValueHandling = NullValueHandling.Ignore};
             response.EnsureSuccessStatusCode();
             using (var stream = await response.Content.ReadAsStreamAsync())
             {
@@ -178,6 +175,12 @@ namespace Gojek.Utilities
         public static CrossRestClient CreateNewOne()
         {
             var client = new CrossRestClient();
+            return client;
+        }
+
+        public static CrossRestClient CreateNewOneFaster()
+        {
+            var client = new CrossRestClient(new NativeMessageHandler(throwOnCaptiveNetwork: false, new TLSConfig()));
             return client;
         }
     }
