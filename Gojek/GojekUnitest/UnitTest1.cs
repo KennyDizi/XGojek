@@ -10,6 +10,7 @@ namespace GojekUnitest
         [SetUp]
         public void Setup()
         {
+            Xamarin.Forms.Mocks.MockForms.Init();
         }
 
         [Test]

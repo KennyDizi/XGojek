@@ -16,7 +16,7 @@ namespace Gojek.Views.HomePage
 
         private async Task LoginTask()
         {
-
+            await this.Navigator.PushModalAsNavPageAsync(new GojekHomePageView(), animated: true);
         }
 
         private string _userName;

@@ -2,6 +2,7 @@
 using Gojek.Services.NavigationService;
 using Gojek.Utilities;
 using Gojek.Views.HomePage;
+using Plugin.SharedTransitions;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific.AppCompat;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
@@ -35,7 +36,7 @@ namespace Gojek
             var factory = CrossIoCDefine.CrossIocContainer.Resolve<ICrossViewFactory>();
             var introPage = factory.ResolvePage<GojekV2HomePageViewModel>(CrossPageKeys.GojekV2HomePage.ToString());
 
-            MainPage = new Xamarin.Forms.NavigationPage(introPage);
+            MainPage = new SharedTransitionNavigationPage(introPage);
         }
 
         protected override void OnStart()
