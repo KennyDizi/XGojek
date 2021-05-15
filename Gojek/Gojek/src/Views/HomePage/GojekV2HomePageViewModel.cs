@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using Gojek.ViewModels;
 using ReactiveUI;
+using Xamarin.Essentials;
 
 namespace Gojek.Views.HomePage
 {
@@ -9,15 +10,16 @@ namespace Gojek.Views.HomePage
     {
         public GojekV2HomePageViewModel()
         {
-            LoginCommand = ReactiveCommand.CreateFromTask(LoginTask);
+            LoginCommand = ReactiveCommand.CreateFromTask(LoginTask, outputScheduler: RxApp.MainThreadScheduler);
         }
 
         public ICommand LoginCommand { get; }
 
         private async Task LoginTask()
         {
-            var userName = await this.Dialoger.DisplayPromptAsync("Hi", message: "What's your name?");
-            await this.Navigator.PushModalAsNavPageAsync(new GojekHomePageView(), animated: true);
+            var name = await MainThread.InvokeOnMainThreadAsync(async () => await this.Dialoger.DisplayPromptAsync("Hi", message: "What's your name?"));
+
+            /*await this.Navigator.PushModalAsNavPageAsync(new GojekHomePageView(), animated: true);*/
         }
 
         private string _userName;

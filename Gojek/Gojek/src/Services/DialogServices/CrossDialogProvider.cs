@@ -11,7 +11,7 @@ namespace Gojek.Services.DialogServices
 {
     public class CrossDialogProvider : ICrossDialogProvider
     {
-        private readonly Func<ContentPage> _pageResolver;
+        private readonly Func<Page> _pageResolver;
         private readonly ICrossNavigator _navigator;
 
         public CrossDialogProvider()
@@ -23,7 +23,7 @@ namespace Gojek.Services.DialogServices
         /// </summary>
         /// <param name="pageResolver"></param>
         /// <param name="navigator"></param>
-        public CrossDialogProvider(Func<ContentPage> pageResolver, ICrossNavigator navigator)
+        public CrossDialogProvider(Func<Page> pageResolver, ICrossNavigator navigator)
         {
             _pageResolver = pageResolver;
             _navigator = navigator;
@@ -85,9 +85,10 @@ namespace Gojek.Services.DialogServices
 
             // small delay
             await Task.Delay(TimeSpan.FromMilliseconds(200));
+            var page = _pageResolver();
 
-            return await _pageResolver()
-                .DisplayPromptAsync(title, message, accept, cancel, placeholder, maxLength, keyboard, initialValue);
+            return await page.DisplayPromptAsync(title, message, accept, cancel, 
+                    placeholder, maxLength, keyboard, initialValue);
         }
 
         /// <inheritdoc />
