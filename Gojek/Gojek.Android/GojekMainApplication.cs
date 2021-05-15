@@ -6,7 +6,7 @@ using Plugin.CurrentActivity;
 namespace Gojek.Droid
 {
 #if DEBUG
-[Application(Debuggable = true)]
+    [Application(Debuggable = true)]
 #else
     [Application(Debuggable = false)]
 #endif
