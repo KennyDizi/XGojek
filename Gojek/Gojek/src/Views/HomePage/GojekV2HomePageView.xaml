@@ -15,7 +15,7 @@
             <textInputLayout:SfTextInputLayout
                 ContainerType="Filled"
                 FocusedStrokeWidth="1"
-                Hint="What's your name?">
+                Hint="What's your user name?">
                 <textInputLayout:SfTextInputLayout.HintLabelStyle>
                     <textInputLayout:LabelStyle FontSize="12" />
                 </textInputLayout:SfTextInputLayout.HintLabelStyle>
