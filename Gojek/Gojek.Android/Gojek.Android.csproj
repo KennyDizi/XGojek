@@ -163,6 +163,12 @@
     <PackageReference Include="Syncfusion.Xamarin.Buttons">
       <Version>19.1.0.63</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.Core">
+      <Version>19.1.0.63</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox">
+      <Version>19.1.0.63</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfListView">
       <Version>19.1.0.63</Version>
     </PackageReference>

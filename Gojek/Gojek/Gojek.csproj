@@ -31,6 +31,8 @@
     <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.11" />
     <PackageReference Include="Sharpnado.MaterialFrame" Version="1.1.4" />
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="19.1.0.63" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="19.1.0.63" />
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="19.1.0.63" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="19.1.0.63" />
     <PackageReference Include="Syncfusion.Xamarin.SfRotator" Version="19.1.0.63" />
     <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="19.1.0.63" />
