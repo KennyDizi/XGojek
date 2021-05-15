@@ -3,6 +3,9 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Sharpnado.MaterialFrame.iOS;
+using Syncfusion.ListView.XForms.iOS;
+using Syncfusion.SfRotator.XForms.iOS;
+using Syncfusion.XForms.iOS.Shimmer;
 using UIKit;
 
 namespace Gojek.iOS
@@ -30,7 +33,9 @@ namespace Gojek.iOS
             Syncfusion.XForms.iOS.TextInputLayout.SfTextInputLayoutRenderer.Init();
             Xamarin.Forms.Nuke.FormsHandler.Init();
             iOSMaterialFrameRenderer.Init();
-
+            new SfRotatorRenderer();
+            SfListViewRenderer.Init();
+            SfShimmerRenderer.Init();
             AppCenter.Start("f6118f93-dcd9-4c84-af00-0e391d14547e",
                 typeof(Analytics), typeof(Crashes));
 

@@ -230,6 +230,9 @@
     <PackageReference Include="Syncfusion.Xamarin.SfListView">
       <Version>19.1.0.63</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfRotator">
+      <Version>19.1.0.63</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfTabView">
       <Version>19.1.0.63</Version>
     </PackageReference>
